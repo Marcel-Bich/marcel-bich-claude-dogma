@@ -4,7 +4,8 @@
 - [ ] May run `git add` autonomously
 - [ ] May run `git commit` autonomously
 - [ ] May run `git push` autonomously
-- [ ] May delete untracked files autonomously
+- [ ] May delete files autonomously (rm, unlink, git clean)
+- [ ] Log blocked deletes to TO-DELETE.md instead of asking
 </permissions>
 
 <file_protection>
