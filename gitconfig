@@ -1,0 +1,6 @@
+# Git configuration for dogma sync
+# Apply with: git config --local user.name "..." && git config --local user.email "..."
+
+[user]
+    name = Your Name
+    email = your-username@users.noreply.github.com
