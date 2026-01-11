@@ -19,3 +19,5 @@ BAD: Making up API signatures that don't exist
 BAD: Claiming code works without running it
 BAD: Inventing file paths or function names
 </examples>
+
+For details see `GUIDES/honesty.md`
