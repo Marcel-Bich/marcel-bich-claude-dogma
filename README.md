@@ -91,7 +91,7 @@ The sync process will interactively review:
 |--------|---------|---------|
 | `@file` | Critical, always load | `@CLAUDE/CLAUDE.git.md` |
 | `` `file` `` | Situational, load when relevant | `` `CLAUDE/CLAUDE.versioning.md` `` |
-| `For details see` | Optional, load if more context needed | `GUIDES/versioning.md` |
+| `For details see` | Optional, load if more context needed | `GUIDES/accessibility.md` |
 
 ## Topics Covered
 
