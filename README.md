@@ -58,6 +58,7 @@ The sync process will interactively review:
 │   └── CLAUDE.accessibility.md     # A11y + Mobile-First (optional)
 ├── GUIDES/                         # Detailed conventions
 │   ├── git.md
+│   ├── honesty.md
 │   ├── language.md
 │   ├── planning.md
 │   ├── prompt-intervention.md
