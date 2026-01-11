@@ -95,6 +95,78 @@ claude plugin install limit@marcel-bich-claude-marketplace
 
 ---
 
+## CLI Tools (Security)
+
+These tools help verify dependencies before installation. They work best when installed **globally** so they're available in all projects.
+
+### Global vs Local Installation
+
+| Scope | When to use | Command |
+|-------|-------------|---------|
+| **Global** | Personal workflow, ad-hoc checks before `npm install` | `npm install -g <package>` |
+| **Local** | CI/CD pipelines, team version consistency | `npm install -D <package>` |
+
+**Recommendation:** Install globally for personal use. Add locally if your CI/CD needs it.
+
+---
+
+### socket.dev CLI
+
+> Dependency security scanning before npm install.
+> Detects typosquatting, known vulnerabilities, and suspicious packages.
+
+**Docs:** https://socket.dev/
+
+**Install (Global - recommended):**
+```bash
+npm install -g @socketsecurity/cli
+```
+
+**Install (Local - for CI/CD):**
+```bash
+npm install -D @socketsecurity/cli
+```
+
+**Usage:**
+```bash
+# Check a package before installing
+socket npm info <package-name>
+
+# Scan package.json
+socket npm audit
+```
+
+---
+
+### snyk CLI
+
+> Vulnerability scanning for npm, pip, cargo, and more.
+> Free tier available with snyk.io account.
+
+**Docs:** https://snyk.io/
+
+**Install (Global - recommended):**
+```bash
+npm install -g snyk
+snyk auth  # One-time authentication
+```
+
+**Install (Local - for CI/CD):**
+```bash
+npm install -D snyk
+```
+
+**Usage:**
+```bash
+# Test project for vulnerabilities
+snyk test
+
+# Monitor project (reports to snyk.io dashboard)
+snyk monitor
+```
+
+---
+
 ## MCP Servers
 
 ### context7
