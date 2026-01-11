@@ -121,4 +121,13 @@ This software is provided "as is", without warranty of any kind. Use at your own
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT - See [LICENSE](LICENSE) for full terms.
+
+---
+
+<details>
+<summary>Keywords / Tags</summary>
+
+Claude Code, Claude Code Instructions, Claude Code Rules, Claude Code Guidelines, Claude Code Configuration, Claude Code Settings, Claude Code CLAUDE.md, Claude Code Customization, Claude Code Best Practices, Claude Code Standards, Claude Code Conventions, Claude Code Workflow, Claude Code Sync, Claude Code Template, Anthropic CLI, Anthropic Claude, Anthropic AI, AI Agent Rules, AI Agent Guidelines, AI Agent Instructions, AI Agent Configuration, AI Code Assistant, AI Coding, AI Programming, AI Development, LLM Rules, LLM Guidelines, LLM Instructions, Git Rules, Git Conventions, Language Rules, German Umlauts, Code Quality, Code Standards, Philosophy YAGNI, Philosophy KISS, Rule of Three, Honesty Rules, Planning Rules, Security Rules, Legal Rules, Licensing MIT, dogma sync, dogma plugin, Marcel Bich, marcel-bich-claude-dogma
+
+</details>
