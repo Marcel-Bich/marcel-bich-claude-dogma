@@ -5,7 +5,7 @@
 - [ ] May run `git commit` autonomously
 - [ ] May run `git push` autonomously
 - [ ] May delete files autonomously (rm, unlink, git clean)
-- [ ] Log blocked deletes to TO-DELETE.md instead of asking
+- [ ] Ask before deleting (instead of logging to TO-DELETE.md)
 </permissions>
 
 <file_protection>
