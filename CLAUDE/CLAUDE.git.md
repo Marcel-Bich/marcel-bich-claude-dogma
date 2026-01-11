@@ -39,3 +39,4 @@ Avoid patterns that reveal AI usage:
 </ai_traces>
 
 @GUIDES/git.md
+@GUIDES/ai-traces.md
