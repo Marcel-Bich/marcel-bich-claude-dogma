@@ -167,6 +167,249 @@ snyk monitor
 
 ---
 
+## Linting & Formatting Tools
+
+Language-specific tools for code quality. Install globally for personal use, locally for CI/CD.
+
+### JavaScript/TypeScript
+
+#### Prettier (Formatter)
+
+> Opinionated code formatter. Enforces consistent style automatically.
+
+**Docs:** https://prettier.io/
+
+**Install (Global):**
+```bash
+npm install -g prettier
+```
+
+**Install (Local - recommended for projects):**
+```bash
+npm install -D prettier
+```
+
+**Usage:**
+```bash
+# Format file
+prettier --write src/index.ts
+
+# Check without modifying
+prettier --check .
+```
+
+---
+
+#### ESLint (Linter)
+
+> Finds and fixes problems in JavaScript/TypeScript code.
+> Catches bugs, enforces best practices, prevents common mistakes.
+
+**Docs:** https://eslint.org/
+
+**Install (Global):**
+```bash
+npm install -g eslint
+```
+
+**Install (Local - recommended for projects):**
+```bash
+npm install -D eslint
+```
+
+**Usage:**
+```bash
+# Lint files
+eslint src/
+
+# Auto-fix what's possible
+eslint --fix src/
+```
+
+---
+
+### Python
+
+#### ruff (Linter + Formatter)
+
+> Extremely fast Python linter and formatter written in Rust.
+> Replaces flake8, isort, black, and many other tools.
+
+**Docs:** https://docs.astral.sh/ruff/
+
+**Install (Global - recommended):**
+```bash
+pip install ruff
+# or
+pipx install ruff
+```
+
+**Install (Local):**
+```bash
+pip install ruff
+# Add to requirements-dev.txt or pyproject.toml
+```
+
+**Usage:**
+```bash
+# Lint
+ruff check .
+
+# Auto-fix
+ruff check --fix .
+
+# Format
+ruff format .
+```
+
+---
+
+### PHP
+
+#### PHP-CS-Fixer (Formatter)
+
+> Fixes PHP code style according to PSR standards.
+
+**Docs:** https://cs.symfony.com/
+
+**Install (Global):**
+```bash
+composer global require friendsofphp/php-cs-fixer
+```
+
+**Install (Local):**
+```bash
+composer require --dev friendsofphp/php-cs-fixer
+```
+
+**Usage:**
+```bash
+# Fix files
+php-cs-fixer fix src/
+
+# Dry run (show changes)
+php-cs-fixer fix --dry-run --diff src/
+```
+
+---
+
+#### PHPStan (Linter)
+
+> Static analysis tool for PHP. Finds bugs without running code.
+
+**Docs:** https://phpstan.org/
+
+**Install (Global):**
+```bash
+composer global require phpstan/phpstan
+```
+
+**Install (Local - recommended):**
+```bash
+composer require --dev phpstan/phpstan
+```
+
+**Usage:**
+```bash
+# Analyze at level 5 (0-9, higher = stricter)
+phpstan analyse src/ --level=5
+
+# Use config file
+phpstan analyse -c phpstan.neon
+```
+
+---
+
+### Rust
+
+#### rustfmt (Formatter)
+
+> Official Rust formatter. Included with Rust toolchain.
+
+**Docs:** https://rust-lang.github.io/rustfmt/
+
+**Install:** Comes with `rustup`
+
+**Usage:**
+```bash
+# Format project
+cargo fmt
+
+# Check without modifying
+cargo fmt --check
+```
+
+---
+
+#### Clippy (Linter)
+
+> Official Rust linter. Catches common mistakes and suggests improvements.
+
+**Docs:** https://doc.rust-lang.org/clippy/
+
+**Install:** Comes with `rustup`, or:
+```bash
+rustup component add clippy
+```
+
+**Usage:**
+```bash
+# Run lints
+cargo clippy
+
+# Treat warnings as errors
+cargo clippy -- -D warnings
+```
+
+---
+
+### Go
+
+#### gofmt (Formatter)
+
+> Official Go formatter. Included with Go toolchain.
+
+**Docs:** https://pkg.go.dev/cmd/gofmt
+
+**Install:** Comes with Go
+
+**Usage:**
+```bash
+# Format file (prints to stdout)
+gofmt -w .
+
+# Check without modifying
+gofmt -l .
+```
+
+---
+
+#### golangci-lint (Linter)
+
+> Fast linters runner for Go. Aggregates many linters into one tool.
+
+**Docs:** https://golangci-lint.run/
+
+**Install (Global - recommended):**
+```bash
+# Linux/macOS
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+
+# Or via go install
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+```
+
+**Usage:**
+```bash
+# Run lints
+golangci-lint run
+
+# With specific linters
+golangci-lint run --enable=gofmt,govet,errcheck
+```
+
+---
+
 ## MCP Servers
 
 ### context7
