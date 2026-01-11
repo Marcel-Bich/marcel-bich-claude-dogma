@@ -111,6 +111,14 @@ The sync process will interactively review:
 
 - [marcel-bich-claude-marketplace](https://github.com/Marcel-Bich/marcel-bich-claude-marketplace) - Plugin marketplace containing the dogma plugin
 
+## Disclaimer
+
+This software is provided "as is", without warranty of any kind. Use at your own risk.
+
+- The author is **not responsible** for any issues arising from use of this software
+- **You are solely responsible** for ensuring this works with your setup
+- No support or maintenance is guaranteed
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
