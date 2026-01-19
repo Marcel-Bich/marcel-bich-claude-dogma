@@ -1,6 +1,7 @@
 # Claude Code Guidelines
 
 @CLAUDE/CLAUDE.git.md
+@CLAUDE/CLAUDE.subagents.md
 @CLAUDE/CLAUDE.honesty.md
 @CLAUDE/CLAUDE.language.md
 @CLAUDE/CLAUDE.planning.md
