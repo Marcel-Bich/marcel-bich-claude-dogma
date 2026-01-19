@@ -72,3 +72,6 @@ After merge/review (order: relevant tests -> build -> ALL tests):
 | git commit | Creates commits | Asks first | Blocked |
 | git push | Pushes to remote | Asks first | Blocked |
 | delete files | Deletes files | Asks first | Logged to TO-DELETE.md |
+
+## Subagent Delegation
+- [x] Skill tool usage counts as delegation
