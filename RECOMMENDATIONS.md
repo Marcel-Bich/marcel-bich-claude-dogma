@@ -97,8 +97,9 @@ claude plugin install limit@marcel-bich-claude-marketplace
 
 ### Subagent Plugins (claude-plugins-official)
 
-> These plugins provide specialized agents for code review, development, and analysis.
-> Required for full subagent orchestration support.
+> These plugins provide the specialized agents that dogma references in its orchestration workflow.
+> CLAUDE.subagents.md and dogma-orchestration mention agents like code-reviewer, code-architect,
+> silent-failure-hunter - without these plugins installed, those agents will not be available.
 
 **Repo:** https://github.com/anthropics/claude-plugins-official
 
