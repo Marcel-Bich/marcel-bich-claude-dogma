@@ -14,7 +14,7 @@ Mark with `[x]` for auto, `[?]` for ask, `[ ]` for deny.
 
 ## Workflow Permissions
 
-Checkbox legend: `[ ]`/`[0]` = disabled, `[1]` = only one, `[x]` = all relevant, `[a]` = ALL, `[?]` = on request
+Checkbox legend: `[ ]` = disabled, `[x]` = auto, `[?]` = on request
 
 ### Testing
 
@@ -61,7 +61,7 @@ Test-Driven Development:
 After merge/review (order: relevant tests -> build -> ALL tests):
 - [x] run relevant tests
 - [x] check build
-- [a] run ALL tests
+- [x] run ALL tests
 </permissions>
 
 ## Behavior
