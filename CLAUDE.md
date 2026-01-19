@@ -1,7 +1,35 @@
 # Claude Code Guidelines
 
-@CLAUDE/CLAUDE.git.md
+<MANDATORY_RULES>
+## MANDATORY - ALWAYS FOLLOW WITHOUT EXCEPTION
+
+These rules apply ALWAYS, without exception, for EVERY action:
+
+### 1. Subagent-First (HIGHEST PRIORITY)
 @CLAUDE/CLAUDE.subagents.md
+
+**BEFORE EVERY ACTION check:**
+- Does this require user interaction? -> Main Agent OK
+- Is there a specialized agent for this? -> USE IT!
+- No fitting agent? -> general-purpose subagent
+- 2+ independent tasks? -> Hydra MANDATORY
+
+**NEVER work directly when a subagent exists.**
+
+### 2. Git Rules (NO EXCEPTIONS)
+@CLAUDE/CLAUDE.git.md
+
+**ALWAYS:**
+- No AI attribution (Co-Authored-By, "Generated with Claude")
+- No AI traces (curly quotes, em-dashes, emojis in code)
+- Never delete local files without explicit user confirmation
+
+</MANDATORY_RULES>
+
+---
+
+## Other Important Rules
+
 @CLAUDE/CLAUDE.honesty.md
 @CLAUDE/CLAUDE.language.md
 @CLAUDE/CLAUDE.planning.md
