@@ -95,6 +95,65 @@ claude plugin install limit@marcel-bich-claude-marketplace
 
 ---
 
+### Subagent Plugins (claude-plugins-official)
+
+> These plugins provide specialized agents for code review, development, and analysis.
+> Required for full subagent orchestration support.
+
+**Repo:** https://github.com/anthropics/claude-plugins-official
+
+#### feature-dev
+
+> Code architecture and exploration agents.
+
+**Agents:** code-architect, code-explorer, code-reviewer
+
+**Install:**
+```bash
+claude plugin install feature-dev@claude-plugins-official
+```
+
+---
+
+#### plugin-dev
+
+> Plugin development agents.
+
+**Agents:** agent-creator, plugin-validator, skill-reviewer
+
+**Install:**
+```bash
+claude plugin install plugin-dev@claude-plugins-official
+```
+
+---
+
+#### pr-review-toolkit
+
+> Code review and analysis agents.
+
+**Agents:** silent-failure-hunter, code-simplifier, comment-analyzer, code-reviewer, pr-test-analyzer, type-design-analyzer
+
+**Install:**
+```bash
+claude plugin install pr-review-toolkit@claude-plugins-official
+```
+
+---
+
+#### superpowers
+
+> Advanced development skills and code review.
+
+**Agents:** code-reviewer
+
+**Install:**
+```bash
+claude plugin install superpowers@claude-plugins-official
+```
+
+---
+
 ## CLI Tools (Security)
 
 These tools help verify dependencies before installation. They work best when installed **globally** so they're available in all projects.
