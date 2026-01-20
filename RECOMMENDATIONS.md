@@ -164,6 +164,25 @@ claude plugin install get-shit-done@marcel-bich-claude-marketplace
 
 ---
 
+### marketplace (Plugin Development)
+
+> Development tools for Claude Code plugins - local testing without pushing.
+> For plugin and marketplace developers only.
+
+**Repo:** https://github.com/Marcel-Bich/marcel-bich-claude-marketplace
+
+**Install:**
+```bash
+claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
+claude plugin install marketplace@marcel-bich-claude-marketplace
+```
+
+**Key commands:**
+- `/marketplace:local-copy` - Install local plugin version for testing (backup original)
+- `/marketplace:local-cleanup` - Restore original plugin version from backup
+
+---
+
 ### Safety Net
 
 > Blocks dangerous commands before execution - even in skip permission mode!
