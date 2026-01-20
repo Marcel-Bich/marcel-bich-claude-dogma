@@ -15,20 +15,66 @@ To update a plugin when a new version is available:
 
 ---
 
-### Safety Net
+### credo (Workflow Session Init)
 
-> Blocks dangerous commands before execution - even in skip permission mode!
-> Reduces risk when running automated tasks.
+> Opinionated workflow guides and best practices for Claude Code projects.
+> Includes `/credo:session-init` for Main Agent orchestration setup.
 
-> **Warning:** Not a guarantee! AIs can sometimes find creative workarounds.
-> Use at your own risk - but definitely better than running without it!
-
-**Repo:** https://github.com/kenryu42/claude-code-safety-net
+**Repo:** https://github.com/Marcel-Bich/marcel-bich-claude-marketplace
 
 **Install:**
-- Install as plugin from marketplace
-- Restart Claude Code
-- Test: prompt "execute: git checkout -- README.md" - should be blocked!
+```bash
+claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
+claude plugin install credo@marcel-bich-claude-marketplace
+```
+
+**Key commands:**
+- `/credo:session-init` - Initialize session with Main Agent workflow instructions
+- `/credo:psalm` - Interactive guide to available topics and workflows
+
+---
+
+### dogma (Rules Enforcement)
+
+> Intelligent sync of Claude instructions with enforcement hooks.
+> Provides security hooks, linting, AI traces cleanup, and permissions system.
+
+> **Note:** Enforcement hooks increase token consumption. Recommended for Claude Max 20x.
+
+**Repo:** https://github.com/Marcel-Bich/marcel-bich-claude-marketplace
+
+**Install:**
+```bash
+claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
+claude plugin install dogma@marcel-bich-claude-marketplace
+```
+
+**Key commands:**
+- `/dogma:sync` - Sync Claude instructions from any source
+- `/dogma:lint` - Project-agnostic linting on staged files
+- `/dogma:permissions` - Configure Claude autonomy levels
+- `/dogma:cleanup` - Find and fix AI-typical patterns
+
+---
+
+### hydra (Parallel Agents)
+
+> Git Worktree management for parallel agent execution.
+> Enables isolated working directories without Git conflicts.
+
+**Repo:** https://github.com/Marcel-Bich/marcel-bich-claude-marketplace
+
+**Install:**
+```bash
+claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
+claude plugin install hydra@marcel-bich-claude-marketplace
+```
+
+**Key commands:**
+- `/hydra:create` - Create new worktree with its own branch
+- `/hydra:parallel` - Start multiple agents in parallel across worktrees
+- `/hydra:merge` - Merge worktree branch back
+- `/hydra:help` - Show all commands
 
 ---
 
@@ -76,6 +122,62 @@ claude plugin install signal@marcel-bich-claude-marketplace
 claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
 claude plugin install limit@marcel-bich-claude-marketplace
 ```
+
+---
+
+### import (Documentation Import)
+
+> Import external documentation locally with smart fallback chain.
+> Bypasses AI-blocking sites using Context7 -> WebFetch -> Playwright.
+
+**Repo:** https://github.com/Marcel-Bich/marcel-bich-claude-marketplace
+
+**Install:**
+```bash
+claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
+claude plugin install import@marcel-bich-claude-marketplace
+```
+
+**Key commands:**
+- `/import:url-or-path` - Import from URL or local path
+- `/import:search` - Search within cached docs
+- `/import:list` - List all cached documentation
+
+---
+
+### get-shit-done (GSD Installer)
+
+> Installer for TACHES' Get-Shit-Done workflow system.
+> Alternative to taches-cc-resources with project management focus.
+
+**Repo:** https://github.com/Marcel-Bich/marcel-bich-claude-marketplace
+
+**Install:**
+```bash
+claude plugin marketplace add Marcel-Bich/marcel-bich-claude-marketplace
+claude plugin install get-shit-done@marcel-bich-claude-marketplace
+```
+
+**Setup:** Run `/gsd:setup` once, then restart Claude Code.
+
+**Credits:** Original by [TACHES (glittercowboy)](https://github.com/glittercowboy/get-shit-done)
+
+---
+
+### Safety Net
+
+> Blocks dangerous commands before execution - even in skip permission mode!
+> Reduces risk when running automated tasks.
+
+> **Warning:** Not a guarantee! AIs can sometimes find creative workarounds.
+> Use at your own risk - but definitely better than running without it!
+
+**Repo:** https://github.com/kenryu42/claude-code-safety-net
+
+**Install:**
+- Install as plugin from marketplace
+- Restart Claude Code
+- Test: prompt "execute: git checkout -- README.md" - should be blocked!
 
 ---
 
@@ -151,78 +253,6 @@ claude plugin install pr-review-toolkit@claude-plugins-official
 **Install:**
 ```bash
 claude plugin install superpowers@claude-plugins-official
-```
-
----
-
-## CLI Tools (Security)
-
-These tools help verify dependencies before installation. They work best when installed **globally** so they're available in all projects.
-
-### Global vs Local Installation
-
-| Scope | When to use | Command |
-|-------|-------------|---------|
-| **Global** | Personal workflow, ad-hoc checks before `npm install` | `npm install -g <package>` |
-| **Local** | CI/CD pipelines, team version consistency | `npm install -D <package>` |
-
-**Recommendation:** Install globally for personal use. Add locally if your CI/CD needs it.
-
----
-
-### socket.dev CLI
-
-> Dependency security scanning before npm install.
-> Detects typosquatting, known vulnerabilities, and suspicious packages.
-
-**Docs:** https://socket.dev/
-
-**Install (Global - recommended):**
-```bash
-npm install -g @socketsecurity/cli
-```
-
-**Install (Local - for CI/CD):**
-```bash
-npm install -D @socketsecurity/cli
-```
-
-**Usage:**
-```bash
-# Check a package before installing
-socket npm info <package-name>
-
-# Scan package.json
-socket npm audit
-```
-
----
-
-### snyk CLI
-
-> Vulnerability scanning for npm, pip, cargo, and more.
-> Free tier available with snyk.io account.
-
-**Docs:** https://snyk.io/
-
-**Install (Global - recommended):**
-```bash
-npm install -g snyk
-snyk auth  # One-time authentication
-```
-
-**Install (Local - for CI/CD):**
-```bash
-npm install -D snyk
-```
-
-**Usage:**
-```bash
-# Test project for vulnerabilities
-snyk test
-
-# Monitor project (reports to snyk.io dashboard)
-snyk monitor
 ```
 
 ---
@@ -503,3 +533,58 @@ Find out via mcp using current docs how XYZ is correctly implemented.
 **NPM:** https://www.npmjs.com/package/@playwright/mcp
 
 **Install:** Follow package instructions, add to `~/.claude.json`
+
+---
+
+## Git Host Security Settings
+
+> Built-in security features of git hosting platforms.
+> Free for public repos, limited free features for private repos.
+> Configure via web interface, not command line.
+
+### GitHub (Public Repositories - All Free)
+
+| Feature | Recommended | Description |
+|---------|-------------|-------------|
+| Private vulnerability reporting | Enabled | Community can privately report security issues |
+| Dependency graph | Enabled | Shows all dependencies |
+| Dependabot alerts | Enabled | Warns about vulnerabilities in dependencies |
+| Dependabot security updates | Enabled | Auto-creates PRs for security fixes |
+| Grouped security updates | Enabled | Groups security PRs together |
+| CodeQL analysis | Enabled | Static code analysis for vulnerabilities |
+| Copilot Autofix | On | AI suggestions for CodeQL fixes |
+| Secret Protection | Enabled | Detects leaked secrets |
+| Push protection | Enabled | Blocks commits containing secrets |
+
+**NOT recommended:** Dependabot version updates (too spammy without user tests)
+
+### GitHub (Private Repositories - Free Features Only)
+
+| Feature | Recommended |
+|---------|-------------|
+| Dependency graph | Enabled |
+| Dependabot alerts | Enabled |
+| Dependabot security updates | Enabled |
+| Grouped security updates | Enabled |
+
+### GitLab
+
+| Feature | Recommended | Description |
+|---------|-------------|-------------|
+| Dependency Scanning | Enabled | Scans dependencies for vulnerabilities |
+| Secret Detection | Enabled | Detects leaked secrets in commits |
+| SAST | Enabled | Static Application Security Testing |
+
+### Bitbucket
+
+| Feature | Recommended | Description |
+|---------|-------------|-------------|
+| Security Advisories | Enabled | Vulnerability alerts for dependencies |
+
+### Setup URLs
+
+| Host | Settings URL |
+|------|--------------|
+| GitHub | `https://github.com/{owner}/{repo}/settings/security_analysis` |
+| GitLab | `https://gitlab.com/{owner}/{repo}/-/settings/security_and_compliance` |
+| Bitbucket | `https://bitbucket.org/{owner}/{repo}/admin/security` |
