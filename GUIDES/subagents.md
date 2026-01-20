@@ -130,7 +130,8 @@ Der vollständige Ablauf für komplexe Aufgaben:
    └── Spezialisierte Agents nötig? → Identifizieren
 
 3. Delegation an Subagents
-   └── Passende Agents für jeden Task spawnen
+   ├── Passende Agents für jeden Task spawnen
+   └── WICHTIG: Subagents informieren dass .gitignore respektiert werden muss
 
 4. Feedback sammeln
    └── Ergebnisse der Subagents einsammeln
