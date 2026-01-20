@@ -7,6 +7,7 @@
 4. **No fitting agent? Use general-purpose** - Never do work directly that a subagent could handle
 5. **Hydra for parallel work** - 2+ independent tasks → Hydra MUST be used
 6. **TDD is mandatory** - If project has tests → write test first, then implementation
+7. **Respect .gitignore** - NEVER add/commit ignored files. They are ignored intentionally. Run git status, accept that files are ignored.
 </rules>
 
 <decision_flow>
