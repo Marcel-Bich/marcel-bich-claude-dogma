@@ -23,7 +23,21 @@ When user wants file deleted: Explain how they can do it themselves.
 2. **No emojis in code** - Not in source, comments, or identifiers. Only in UI/user output.
 3. **Agent files** - Check if repo versions them before committing CLAUDE.* files
 4. **Commit prefix** - Use `vX.Y.Z:` format for version bumps
+5. **Git summary** - After any git operations, include a summary showing what was done
 </rules>
+
+<git_summary>
+After git add/commit/push, ALWAYS end with a summary block:
+
+```
+**Git:**
+- Added: file1.ts, file2.ts
+- Committed: "commit message here"
+- Pushed: yes/no
+```
+
+Keep it short - just filenames, not full paths unless needed for clarity.
+</git_summary>
 
 <ai_traces>
 Avoid patterns that reveal AI usage:
