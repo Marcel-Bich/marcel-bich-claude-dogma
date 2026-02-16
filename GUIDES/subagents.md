@@ -1,23 +1,23 @@
 # Subagent Selection Guide
 
-Anleitung zur Auswahl und Orchestrierung von Subagents.
+Guide for selecting and orchestrating subagents.
 
 ---
 
 ## Why Subagent-First
 
 <section name="philosophy">
-Der Main Agent ist Orchestrator, nicht Executor. Diese Trennung hat mehrere Vorteile:
+The Main Agent is an orchestrator, not an executor. This separation has several advantages:
 
-**Fokus**: Der Main Agent konzentriert sich auf Analyse, Planung und Koordination. Subagents übernehmen die eigentliche Arbeit.
+**Focus**: The Main Agent focuses on analysis, planning, and coordination. Subagents handle the actual work.
 
-**Isolation**: Subagents arbeiten in isolierten Kontexten. Fehler in einem Agent beeinflussen andere nicht.
+**Isolation**: Subagents work in isolated contexts. Errors in one agent do not affect others.
 
-**Spezialisierung**: Jeder Agent hat optimierte Prompts für seine Aufgabe. Ein Code-Reviewer prüft anders als ein Test-Analyzer.
+**Specialization**: Each agent has optimized prompts for its task. A code-reviewer reviews differently than a test-analyzer.
 
-**Parallelisierung**: Unabhängige Tasks können gleichzeitig von verschiedenen Agents bearbeitet werden.
+**Parallelization**: Independent tasks can be processed simultaneously by different agents.
 
-**Nachvollziehbarkeit**: Klare Zuständigkeiten machen Entscheidungen transparent.
+**Traceability**: Clear responsibilities make decisions transparent.
 </section>
 
 ---
@@ -25,33 +25,33 @@ Der Main Agent ist Orchestrator, nicht Executor. Diese Trennung hat mehrere Vort
 ## Agent Selection Decision Tree
 
 <section name="decision_tree">
-Vor JEDER Aktion diese Fragen durchgehen:
+Before EVERY action, go through these questions:
 
 ```
-1. Braucht die Aktion User-Interaktion?
-   ├── JA → Main Agent behält die Aufgabe
-   └── NEIN → weiter zu 2
+1. Does the action require user interaction?
+   |-- YES -> Main Agent keeps the task
+   +-- NO -> continue to 2
 
-2. Gibt es einen spezialisierten Agent für diese Aufgabe?
-   ├── JA → Diesen Agent verwenden
-   └── NEIN → weiter zu 3
+2. Is there a specialized agent for this task?
+   |-- YES -> Use that agent
+   +-- NO -> continue to 3
 
-3. Ist die Aufgabe komplex genug für Delegation?
-   ├── JA → general-purpose Agent
-   └── NEIN → Main Agent führt selbst aus
+3. Is the task complex enough for delegation?
+   |-- YES -> general-purpose agent
+   +-- NO -> Main Agent handles it directly
 ```
 
-**Beispiele für User-Interaktion:**
-- Rückfragen zu Requirements
-- Bestätigungen vor destruktiven Aktionen
-- Auswahl zwischen Optionen
-- Präsentation von Ergebnissen
+**Examples of user interaction:**
+- Clarifying requirements
+- Confirming destructive actions
+- Choosing between options
+- Presenting results
 
-**Keine User-Interaktion nötig:**
-- Code-Analyse
-- Datei-Exploration
-- Test-Ausführung
-- Lint-Checks
+**No user interaction needed:**
+- Code analysis
+- File exploration
+- Test execution
+- Lint checks
 </section>
 
 ---
@@ -63,12 +63,12 @@ Vor JEDER Aktion diese Fragen durchgehen:
 <section name="code_analysis_agents">
 | Agent | Source | Use For |
 |-------|--------|---------|
-| code-reviewer | feature-dev, pr-review-toolkit, superpowers | Review von Code-Änderungen, Qualitätsprüfung |
-| code-architect | feature-dev | Feature-Architektur entwerfen |
-| code-explorer | feature-dev | Codebase erkunden und verstehen |
-| code-simplifier | pr-review-toolkit | Komplexen Code vereinfachen |
-| silent-failure-hunter | pr-review-toolkit | Stille Fehler und fehlende Error-Handling finden |
-| type-design-analyzer | pr-review-toolkit | TypeScript Type-Design analysieren |
+| code-reviewer | feature-dev, pr-review-toolkit, superpowers | Reviewing code changes, quality checks |
+| code-architect | feature-dev | Designing feature architecture |
+| code-explorer | feature-dev | Exploring and understanding codebases |
+| code-simplifier | pr-review-toolkit | Simplifying complex code |
+| silent-failure-hunter | pr-review-toolkit | Finding silent errors and missing error handling |
+| type-design-analyzer | pr-review-toolkit | Analyzing TypeScript type design |
 </section>
 
 ### Development & Creation
@@ -76,9 +76,9 @@ Vor JEDER Aktion diese Fragen durchgehen:
 <section name="development_agents">
 | Agent | Source | Use For |
 |-------|--------|---------|
-| agent-creator | plugin-dev | Neue Agents erstellen |
-| plugin-validator | plugin-dev | Plugins validieren |
-| skill-reviewer | plugin-dev | Skills reviewen |
+| agent-creator | plugin-dev | Creating new agents |
+| plugin-validator | plugin-dev | Validating plugins |
+| skill-reviewer | plugin-dev | Reviewing skills |
 </section>
 
 ### Auditing
@@ -86,9 +86,9 @@ Vor JEDER Aktion diese Fragen durchgehen:
 <section name="auditing_agents">
 | Agent | Source | Use For |
 |-------|--------|---------|
-| skill-auditor | taches-cc-resources | Skills auf Best Practices prüfen |
-| slash-command-auditor | taches-cc-resources | Slash Commands auditieren |
-| subagent-auditor | taches-cc-resources | Subagent-Konfigurationen prüfen |
+| skill-auditor | taches-cc-resources | Auditing skills for best practices |
+| slash-command-auditor | taches-cc-resources | Auditing slash commands |
+| subagent-auditor | taches-cc-resources | Auditing subagent configurations |
 </section>
 
 ### Analysis
@@ -96,9 +96,9 @@ Vor JEDER Aktion diese Fragen durchgehen:
 <section name="analysis_agents">
 | Agent | Source | Use For |
 |-------|--------|---------|
-| comment-analyzer | pr-review-toolkit | PR-Kommentare analysieren |
-| pr-test-analyzer | pr-review-toolkit | Tests in PRs analysieren |
-| conversation-analyzer | hookify | Konversationen analysieren |
+| comment-analyzer | pr-review-toolkit | Analyzing PR comments |
+| pr-test-analyzer | pr-review-toolkit | Analyzing tests in PRs |
+| conversation-analyzer | hookify | Analyzing conversations |
 </section>
 
 ### Built-in
@@ -106,11 +106,11 @@ Vor JEDER Aktion diese Fragen durchgehen:
 <section name="builtin_agents">
 | Agent | Source | Use For |
 |-------|--------|---------|
-| Explore | built-in | Codebase-Exploration, Dateisuche |
-| Plan | built-in | Planungsaufgaben |
-| general-purpose | built-in | Alles andere ohne User-Interaktion |
+| Explore | built-in | Codebase exploration, file search |
+| Plan | built-in | Planning tasks |
+| general-purpose | built-in | Everything else without user interaction |
 
-**Hinweis**: Built-in Agents sind immer verfügbar. Externe Agents nur wenn das entsprechende Plugin installiert ist.
+**Note**: Built-in agents are always available. External agents only when the corresponding plugin is installed.
 </section>
 
 ---
@@ -118,40 +118,40 @@ Vor JEDER Aktion diese Fragen durchgehen:
 ## Orchestration Flow
 
 <section name="orchestration_flow">
-Der vollständige Ablauf für komplexe Aufgaben:
+The complete flow for complex tasks:
 
 ```
-1. User Prompt empfangen
-   └── Main Agent analysiert die Anfrage
+1. Receive user prompt
+   +-- Main Agent analyzes the request
 
-2. Kontext prüfen
-   ├── Tests vorhanden? → TDD-Workflow aktivieren
-   ├── Mehrere unabhängige Tasks? → Hydra verwenden
-   └── Spezialisierte Agents nötig? → Identifizieren
+2. Check context
+   |-- Tests present? -> Activate TDD workflow
+   |-- Multiple independent tasks? -> Use Hydra
+   +-- Specialized agents needed? -> Identify them
 
-3. Delegation an Subagents
-   ├── Passende Agents für jeden Task spawnen
-   └── WICHTIG: Subagents informieren dass .gitignore respektiert werden muss
+3. Delegate to subagents
+   |-- Spawn matching agents for each task
+   +-- IMPORTANT: Inform subagents to respect .gitignore
 
-4. Feedback sammeln
-   └── Ergebnisse der Subagents einsammeln
+4. Collect feedback
+   +-- Gather results from subagents
 
-5. Review Agents spawnen
-   ├── code-reviewer für Änderungen
-   ├── silent-failure-hunter für Error-Handling
-   └── type-design-analyzer für TypeScript
+5. Spawn review agents
+   |-- code-reviewer for changes
+   |-- silent-failure-hunter for error handling
+   +-- type-design-analyzer for TypeScript
 
-6. Korrekturen via Subagents
-   └── Gefundene Probleme beheben lassen
+6. Corrections via subagents
+   +-- Fix discovered issues
 
-7. /dogma:lint ausführen
-   └── Formatting und Linting sicherstellen
+7. Run /dogma:lint
+   +-- Ensure formatting and linting
 
-8. Finales Review
-   └── Letzte Qualitätsprüfung
+8. Final review
+   +-- Last quality check
 
-9. User informieren
-   └── Ergebnisse präsentieren, Fragen beantworten
+9. Inform user
+   +-- Present results, answer questions
 ```
 </section>
 
@@ -160,30 +160,30 @@ Der vollständige Ablauf für komplexe Aufgaben:
 ## Hydra Rule
 
 <section name="hydra_rule">
-**Regel**: Wenn 2 oder mehr unabhängige Tasks existieren, MUSS Hydra verwendet werden.
+**Rule**: When 2 or more independent tasks exist, Hydra MUST be used.
 
-**Unabhängige Tasks** sind Tasks die:
-- Keine gemeinsamen Dateien bearbeiten
-- Keine sequentiellen Abhängigkeiten haben
-- Parallel ausgeführt werden können
+**Independent tasks** are tasks that:
+- Do not edit shared files
+- Have no sequential dependencies
+- Can be executed in parallel
 
-**Beispiel unabhängig:**
-- Task A: Tests für Modul X schreiben
-- Task B: Dokumentation für Modul Y erstellen
-- Task C: Linting-Fehler in Modul Z beheben
+**Example independent:**
+- Task A: Write tests for module X
+- Task B: Create documentation for module Y
+- Task C: Fix linting errors in module Z
 
-**Beispiel abhängig:**
-- Task A: Interface definieren
-- Task B: Interface implementieren (braucht A)
-- Task C: Tests für Implementation (braucht B)
+**Example dependent:**
+- Task A: Define interface
+- Task B: Implement interface (needs A)
+- Task C: Tests for implementation (needs B)
 
-**Hydra-Befehle:**
+**Hydra commands:**
 ```bash
-/hydra:create    # Worktree erstellen
-/hydra:spawn     # Agent in Worktree starten
-/hydra:parallel  # Mehrere Agents parallel starten
-/hydra:status    # Status prüfen
-/hydra:merge     # Ergebnisse zusammenführen
+/hydra:create    # Create worktree
+/hydra:spawn     # Start agent in worktree
+/hydra:parallel  # Start multiple agents in parallel
+/hydra:status    # Check status
+/hydra:merge     # Merge results
 ```
 </section>
 
@@ -192,32 +192,32 @@ Der vollständige Ablauf für komplexe Aufgaben:
 ## TDD Rule
 
 <section name="tdd_rule">
-**Regel**: Wenn Tests im Projekt existieren, ist TDD PFLICHT.
+**Rule**: When tests exist in the project, TDD is MANDATORY.
 
-**Prüfung ob Tests existieren:**
-- `__tests__/` Verzeichnis vorhanden?
-- `*.test.ts`, `*.spec.ts` Dateien vorhanden?
-- `vitest.config.*` oder `jest.config.*` vorhanden?
-- `test` Script in `package.json`?
+**Checking if tests exist:**
+- `__tests__/` directory present?
+- `*.test.ts`, `*.spec.ts` files present?
+- `vitest.config.*` or `jest.config.*` present?
+- `test` script in `package.json`?
 
-Wenn mindestens eines zutrifft: TDD ist aktiv.
+If at least one applies: TDD is active.
 
-**TDD-Workflow:**
-1. Test schreiben der fehlschlägt
-2. Minimale Implementation die Test bestehen lässt
+**TDD workflow:**
+1. Write a failing test
+2. Minimal implementation that makes the test pass
 3. Refactoring
-4. Wiederholen
+4. Repeat
 
-**Vorteile:**
-- Spezifikation vor Implementation
-- Regressions-Schutz
-- Sauberes API-Design
-- Vertrauen in Änderungen
+**Benefits:**
+- Specification before implementation
+- Regression protection
+- Clean API design
+- Confidence in changes
 
-**Ausnahmen:**
-- Reine Konfigurationsdateien
-- Dokumentation
-- Explorative Prototypen (mit User-Bestätigung)
+**Exceptions:**
+- Pure configuration files
+- Documentation
+- Exploratory prototypes (with user confirmation)
 </section>
 
 ---
@@ -226,24 +226,24 @@ Wenn mindestens eines zutrifft: TDD ist aktiv.
 
 <section name="quick_reference">
 ```
-Aufgabe                    → Agent
+Task                       -> Agent
 -----------------------------------------
-Code reviewen              → code-reviewer
-Architektur planen         → code-architect
-Codebase erkunden          → Explore / code-explorer
-Code vereinfachen          → code-simplifier
-Fehler finden              → silent-failure-hunter
-Types analysieren          → type-design-analyzer
-Agent erstellen            → agent-creator
-Plugin validieren          → plugin-validator
-Skill reviewen             → skill-reviewer
-Skill auditieren           → skill-auditor
-Slash Command auditieren   → slash-command-auditor
-Subagent auditieren        → subagent-auditor
-PR-Kommentare analysieren  → comment-analyzer
-PR-Tests analysieren       → pr-test-analyzer
-Konversation analysieren   → conversation-analyzer
-Planung                    → Plan
-Sonstiges (ohne User)      → general-purpose
+Review code                -> code-reviewer
+Plan architecture          -> code-architect
+Explore codebase           -> Explore / code-explorer
+Simplify code              -> code-simplifier
+Find errors                -> silent-failure-hunter
+Analyze types              -> type-design-analyzer
+Create agent               -> agent-creator
+Validate plugin            -> plugin-validator
+Review skill               -> skill-reviewer
+Audit skill                -> skill-auditor
+Audit slash command         -> slash-command-auditor
+Audit subagent             -> subagent-auditor
+Analyze PR comments        -> comment-analyzer
+Analyze PR tests           -> pr-test-analyzer
+Analyze conversation       -> conversation-analyzer
+Planning                   -> Plan
+Other (without user)       -> general-purpose
 ```
 </section>
