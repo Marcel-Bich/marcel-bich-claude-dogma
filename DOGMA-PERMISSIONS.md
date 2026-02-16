@@ -50,6 +50,12 @@ When no tests exist:
 Parallel work (only if Hydra available, otherwise sequential):
 - [x] use Hydra for 2+ independent tasks
 
+### Subagent Delegation
+
+What counts as delegation (prevents subagent-first warning):
+- [x] Task tool usage counts as delegation
+- [x] Skill tool usage counts as delegation
+
 ### TDD
 
 Test-Driven Development:
@@ -62,12 +68,6 @@ After merge/review (order: relevant tests -> build -> ALL tests):
 - [x] run relevant tests
 - [x] check build
 - [x] run ALL tests
-
-### Subagent Delegation
-
-What counts as delegation (prevents subagent-first warning):
-- [x] Task tool usage counts as delegation
-- [x] Skill tool usage counts as delegation
 </permissions>
 
 ## Behavior
