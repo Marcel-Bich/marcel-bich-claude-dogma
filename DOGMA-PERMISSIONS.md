@@ -5,9 +5,9 @@ Mark with `[x]` for auto, `[?]` for ask, `[ ]` for deny.
 
 <permissions>
 ## Git Permissions
-- [ ] May run `git add` autonomously
-- [ ] May run `git commit` autonomously
-- [ ] May run `git push` autonomously
+- [x] May run `git add` autonomously
+- [x] May run `git commit` autonomously
+- [?] May run `git push` autonomously
 
 ## File Operations
 - [ ] May delete files autonomously (rm, unlink, git clean)
@@ -62,6 +62,12 @@ After merge/review (order: relevant tests -> build -> ALL tests):
 - [x] run relevant tests
 - [x] check build
 - [x] run ALL tests
+
+### Subagent Delegation
+
+What counts as delegation (prevents subagent-first warning):
+- [x] Task tool usage counts as delegation
+- [x] Skill tool usage counts as delegation
 </permissions>
 
 ## Behavior
@@ -72,6 +78,3 @@ After merge/review (order: relevant tests -> build -> ALL tests):
 | git commit | Creates commits | Asks first | Blocked |
 | git push | Pushes to remote | Asks first | Blocked |
 | delete files | Deletes files | Asks first | Logged to TO-DELETE.md |
-
-## Subagent Delegation
-- [x] Skill tool usage counts as delegation
