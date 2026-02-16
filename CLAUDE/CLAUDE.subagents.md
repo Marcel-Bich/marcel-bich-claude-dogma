@@ -51,4 +51,4 @@ When to use Hydra:
 Commands: `/hydra:create`, `/hydra:spawn`, `/hydra:parallel`
 </hydra_usage>
 
-GUIDES/subagents.md
+For details see `GUIDES/subagents.md`

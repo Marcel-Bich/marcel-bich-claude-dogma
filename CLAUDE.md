@@ -21,8 +21,15 @@ These rules apply ALWAYS, without exception, for EVERY action:
 
 **ALWAYS:**
 - No AI attribution (Co-Authored-By, "Generated with Claude")
-- No AI traces (curly quotes, em-dashes, emojis in code)
 - Never delete local files without explicit user confirmation
+
+### 3. AI Traces (NO EXCEPTIONS)
+@CLAUDE/CLAUDE.ai-traces.md
+
+**ALWAYS:**
+- No curly quotes, em-dashes, smart ellipsis
+- No AI phrases in code, comments, or logs
+- No emojis in code
 
 </MANDATORY_RULES>
 
