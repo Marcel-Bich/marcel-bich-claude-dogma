@@ -2,7 +2,8 @@
 
 <rules>
 1. **Minimize dependencies** - Every package is an attack vector. Only install what's truly needed.
-2. **Verify before install** - Check socket.dev, snyk.io, npm audit BEFORE installing any package.
+2. **Verify before install** - Check npm audit, GitHub Security tab BEFORE installing any package.
+<!-- TBD-sec-4a7e: Supply chain security scanning tool (replacing snyk.io/socket.dev) - skip until resolved -->
 3. **Prefer native APIs** - Browser APIs > npm packages. Standard library > third-party.
 4. **No secrets in code** - Never commit .env, API keys, passwords, tokens, credentials.
 5. **Abort on security issues** - If a package has known vulnerabilities, do NOT install. Find alternative or abort.

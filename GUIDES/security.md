@@ -16,10 +16,10 @@
 
 | Source | URL | What to check |
 |--------|-----|---------------|
-| Socket.dev | https://socket.dev/ | Supply chain risk score |
-| Snyk Advisor | https://snyk.io/advisor/ | Package health, vulnerabilities |
 | npm audit | `npm audit` / `pnpm audit` | Known vulnerabilities |
 | GitHub | Security tab | Security advisories |
+| (TBD-sec-4a7e) | -- | Supply chain risk score |
+| (TBD-sec-4a7e) | -- | Package health, vulnerabilities |
 
 **Red flags - do NOT install:**
 - Package with known vulnerabilities (unpatched)
@@ -66,8 +66,9 @@ Before any dependency change:
 
 - [ ] Is this package really necessary?
 - [ ] Can native APIs solve this instead?
-- [ ] Checked socket.dev for supply chain risks?
-- [ ] Checked snyk.io for vulnerabilities?
+- [ ] Ran npm audit / checked GitHub Security tab?
+- [ ] (TBD-sec-4a7e) Checked supply chain security scanning tool?
+- [ ] (TBD-sec-4a7e) Checked vulnerability scanning tool?
 - [ ] Package actively maintained?
 - [ ] Dependencies count acceptable?
 - [ ] No suspicious install scripts?
@@ -76,7 +77,7 @@ Before any dependency change:
 <abort_conditions>
 **STOP and inform user if:**
 - Package has unpatched critical vulnerabilities
-- Package flagged by socket.dev as high risk
+- (TBD-sec-4a7e) Package flagged by security scanning tool as high risk
 - Package appears to be typosquatting
 - No secure alternative exists for required functionality
 - Installing would require disabling security features
