@@ -38,7 +38,7 @@ Planning upfront costs 5 minutes, saves hours of fixes.
 
 If the user has taches-cc-resources installed, /create-plan provides:
 
-1. **Structured hierarchy** - Brief → Roadmap → Phase plans
+1. **Structured hierarchy** - PROJECT.md -> ROADMAP.md -> Milestones -> Phases -> Plans
 2. **Verification criteria** - Clear definition of done
 3. **Context preservation** - Handoff documents for long tasks
 4. **Progress tracking** - Built-in status updates
