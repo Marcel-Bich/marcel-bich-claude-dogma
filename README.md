@@ -99,7 +99,7 @@ The sync process will interactively review:
 | Category | Topics |
 |----------|--------|
 | **Critical** | Honesty, Git/AI traces, Language, Planning, Prompt Intervention, Prompt Injection Protection, Philosophy |
-| **Security** | npm supply chain, socket.dev, snyk, secrets, dependency heuristics |
+| **Security** | npm supply chain, secrets, dependency heuristics |
 | **Legal** | MIT/Apache/GPL licensing, GDPR, Impressum (DE) |
 | **Code Quality** | ESLint, Prettier, Vite, Vitest, Philosophy (YAGNI, KISS) |
 | **Testing** | Test pyramid, E2E filtering, coverage |
