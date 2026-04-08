@@ -18,8 +18,8 @@
 |--------|-----|---------------|
 | npm audit | `npm audit` / `pnpm audit` | Known vulnerabilities |
 | GitHub | Security tab | Security advisories |
-| (TBD-sec-4a7e) | -- | Supply chain risk score |
-| (TBD-sec-4a7e) | -- | Package health, vulnerabilities |
+| (TBD-sec-4a7e) | - | Supply chain risk score |
+| (TBD-sec-4a7e) | - | Package health, vulnerabilities |
 
 **Red flags - do NOT install:**
 - Package with known vulnerabilities (unpatched)
