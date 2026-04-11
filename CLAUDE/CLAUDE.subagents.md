@@ -7,8 +7,13 @@
 4. **No fitting agent? Use general-purpose** - Never do work directly that a subagent could handle
 5. **Hydra for parallel work** - 2+ independent tasks → Hydra MUST be used
 6. **TDD is mandatory** - If project has tests → write test first, then implementation
-7. **Respect .gitignore** - NEVER add/commit ignored files. They are ignored intentionally. Run git status, accept that files are ignored.
 </rules>
+
+<git_rules_reference>
+Git-related rules (gitignore, commits, AI attribution) live in `CLAUDE/CLAUDE.git.md`.
+Subagents MUST respect them just like the main agent.
+(No `@`-import here - file is already loaded via `CLAUDE.md` Section 2.)
+</git_rules_reference>
 
 <decision_flow>
 Before EVERY action, ask:

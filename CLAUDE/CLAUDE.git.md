@@ -24,6 +24,7 @@ When user wants file deleted: Explain how they can do it themselves.
 3. **Agent files** - Check if repo versions them before committing CLAUDE.* files
 4. **Commit prefix** - Use `vX.Y.Z:` format for version bumps
 5. **Git summary** - After any git operations, include a summary showing what was done
+6. **Respect .gitignore / .git/info/exclude** - NEVER add/commit ignored files. They are ignored intentionally. No `git add -f` to bypass. Run `git status`, accept that files are ignored.
 </rules>
 
 <git_summary>
