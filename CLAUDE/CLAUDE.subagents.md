@@ -13,6 +13,8 @@
 Git-related rules (gitignore, commits, AI attribution) live in `CLAUDE/CLAUDE.git.md`.
 Subagents MUST respect them just like the main agent.
 (No `@`-import here - file is already loaded via `CLAUDE.md` Section 2.)
+
+Subagents only modify files - they never git add/commit/push; the main agent does add+commit+push after review.
 </git_rules_reference>
 
 <decision_flow>
@@ -25,26 +27,13 @@ NEVER do directly what a subagent could do.
 </decision_flow>
 
 <available_agents>
-**Code Analysis:**
-- code-reviewer - Review code quality and patterns
-- code-architect - Analyze architecture decisions
-- code-explorer - Navigate and understand codebases
-- silent-failure-hunter - Find hidden error paths
-
-**Development:**
-- agent-creator - Create new subagents
-- plugin-validator - Validate plugin structure
-- skill-reviewer - Review skill implementations
-
-**Auditing:**
-- skill-auditor - Audit skill files
-- slash-command-auditor - Audit slash commands
-- subagent-auditor - Audit subagent configurations
-
-**Built-in:**
-- Explore - Codebase exploration
+**Guaranteed built-ins (always available):**
+- Explore - Codebase exploration and file search
 - Plan - Planning and strategy
 - general-purpose - Fallback for unspecialized tasks
+
+**Specialized agents:**
+Do NOT assume any specific specialized agent (e.g. code-reviewer, plugin-validator, skill-auditor) exists. A specialized agent is available ONLY if an installed plugin provides it. Discover what actually exists at runtime from the environment's own agent listing, and confirm an agent is listed before spawning it. If a needed specialized agent is not listed, fall back to general-purpose. Never spawn a fixed agent name on the assumption that it is installed - that causes "agent type not found".
 </available_agents>
 
 <hydra_usage>

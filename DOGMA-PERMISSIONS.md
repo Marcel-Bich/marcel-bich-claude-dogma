@@ -8,6 +8,7 @@ Mark with `[x]` for auto, `[?]` for ask, `[ ]` for deny.
 - [x] May run `git add` autonomously
 - [x] May run `git commit` autonomously
 - [?] May run `git push` autonomously
+- Subagents: only modify files, NEVER git add/commit/push. Only the main agent adds+commits+pushes after review (the shared working-tree index has one owner; parallel subagents would race `.git/index.lock`).
 
 ## File Operations
 - [ ] May delete files autonomously (rm, unlink, git clean)
