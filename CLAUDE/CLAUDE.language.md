@@ -1,11 +1,17 @@
 # Language Rules
 
 <rules>
-1. **Follow project conventions** - Match existing language in the project
-2. **Maintain existing language** - Never translate or switch languages mid-file
-3. **Default English** - When unsure or for new projects, use English as fallback
-4. **German umlauts** - ALWAYS use ä, ö, ü, ß in German text. NEVER ae, oe, ue, ss.
-5. **ASCII identifiers** - For German text: use ae, oe, ue, ss in filenames, variables, functions (not umlauts)
+**Language selection** (which natural language for prose/comments/docs) - precedence, highest first:
+1. **Explicit user request** - a requested language wins.
+2. **Tool/plugin setting** - a tool that sets its own content language (e.g. credo items) overrides the default.
+3. **Existing language** - continue a file's language; never mix languages in one file.
+4. **Default English** - new/unclear -> English. When genuinely unclear, ASK the user first. Exception: autonomous mode (e.g. credo autonomous, or any unattended run) -> do NOT ask, proceed and give a one-line reason; the user stops/corrects the run if needed.
+
+**Always:**
+- **README + public docs -> English** (international), even in a German project.
+- **UI/GUI strings -> product locale/audience** (German app -> German strings), independent of code language.
+- **German umlauts** - ALWAYS use ä, ö, ü, ß in German text. NEVER ae, oe, ue, ss.
+- **ASCII identifiers** - For German text: use ae, oe, ue, ss in filenames, variables, functions (not umlauts).
 </rules>
 
 <examples>

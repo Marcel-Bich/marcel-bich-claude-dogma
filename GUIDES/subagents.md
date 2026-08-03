@@ -13,7 +13,7 @@ The Main Agent is an orchestrator, not an executor. This separation has several 
 
 **Isolation**: Subagents work in isolated contexts. Errors in one agent do not affect others.
 
-**Specialization**: Each agent has optimized prompts for its task. A code-reviewer reviews differently than a test-analyzer.
+**Specialization**: Each agent has optimized prompts for its task. A reviewing agent reviews differently than a testing agent.
 
 **Parallelization**: Independent tasks can be processed simultaneously by different agents.
 
@@ -57,8 +57,6 @@ Before EVERY action, go through these questions:
 ---
 
 ## Available Agents by Category
-
-The tables below map which agent typically comes from which plugin. They are a reference of examples, NOT a guaranteed roster: only the built-ins (Explore, Plan, general-purpose) are always available, and every other name exists only if its source plugin is installed. Confirm an agent is actually listed by the environment before spawning it; otherwise fall back to general-purpose.
 
 ### Code Analysis & Review
 
@@ -112,7 +110,7 @@ The tables below map which agent typically comes from which plugin. They are a r
 | Plan | built-in | Planning tasks |
 | general-purpose | built-in | Everything else without user interaction |
 
-**Note**: Only the built-ins (Explore, Plan, general-purpose) are guaranteed. Every other agent name in this guide is an example from a specific plugin, not a promise that it is installed. Always confirm an agent is actually listed by the environment before spawning it; if it is not listed, fall back to general-purpose. Treat the tables and the quick reference below as examples, not a guaranteed roster - spawning a name that is not installed causes "agent type not found".
+**Note**: Only the built-in agents (Explore, Plan, general-purpose) are guaranteed. Every other agent named in this guide is an EXAMPLE from a specific plugin and exists only if that plugin is installed - names vary per install. Always confirm an agent is actually listed in your environment before spawning it (otherwise you get "agent type not found"); if it is not there, fall back to a built-in. Treat the tables and quick-reference below as examples, not a guaranteed roster.
 </section>
 
 ---
@@ -225,8 +223,6 @@ If at least one applies: TDD is active.
 ---
 
 ## Quick Reference
-
-This quick reference lists example agent-to-task mappings, not a guaranteed roster. Only Explore, Plan, and general-purpose are always available; confirm any other agent is actually listed before spawning it, and fall back to general-purpose when it is not.
 
 <section name="quick_reference">
 ```

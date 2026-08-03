@@ -12,9 +12,10 @@
 <git_rules_reference>
 Git-related rules (gitignore, commits, AI attribution) live in `CLAUDE/CLAUDE.git.md`.
 Subagents MUST respect them just like the main agent.
+Subagents only modify files - they NEVER git add/commit/push. The main agent does
+add + commit + push after review, so the shared working-tree index has one owner
+(parallel subagents would race `.git/index.lock`).
 (No `@`-import here - file is already loaded via `CLAUDE.md` Section 2.)
-
-Subagents only modify files - they never git add/commit/push; the main agent does add+commit+push after review.
 </git_rules_reference>
 
 <decision_flow>
@@ -27,13 +28,19 @@ NEVER do directly what a subagent could do.
 </decision_flow>
 
 <available_agents>
-**Guaranteed built-ins (always available):**
-- Explore - Codebase exploration and file search
-- Plan - Planning and strategy
-- general-purpose - Fallback for unspecialized tasks
+Agent names vary per install - a rule set that ships everywhere cannot hardcode a
+reliable list. Before naming a specialized agent, confirm it is actually listed in
+YOUR environment; never assume a specific one exists, or you get "agent type not
+found". If it is not listed, fall back to a built-in.
 
-**Specialized agents:**
-Do NOT assume any specific specialized agent (e.g. code-reviewer, plugin-validator, skill-auditor) exists. A specialized agent is available ONLY if an installed plugin provides it. Discover what actually exists at runtime from the environment's own agent listing, and confirm an agent is listed before spawning it. If a needed specialized agent is not listed, fall back to general-purpose. Never spawn a fixed agent name on the assumption that it is installed - that causes "agent type not found".
+**Built-in (always available):**
+- Explore - Codebase exploration
+- Plan - Planning and strategy
+- general-purpose - Fallback for any unspecialized task
+
+**Specialized (only if an installed plugin provides them):** discover them from
+what your environment actually lists at runtime (e.g. reviewers, auditors,
+validators) - do not rely on fixed names.
 </available_agents>
 
 <hydra_usage>

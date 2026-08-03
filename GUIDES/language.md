@@ -29,6 +29,8 @@ German text MUST use proper Unicode characters:
 | Error messages | Umlauts | `"Datei konnte nicht gefunden werden"` |
 | Comments (German) | Umlauts | `// Überprüft die Größe` |
 | Documentation | Umlauts | `## Übersicht` |
+| Commit message (German) | Umlauts | `Groessenberechnung korrigiert` -> `Größenberechnung korrigiert` |
+| PR title/body (German) | Umlauts | `Behebt fehlerhafte Groessenpruefung` -> `Behebt fehlerhafte Größenprüfung` |
 | Variable names | ASCII | `const groesse = 10;` |
 | Function names | ASCII | `function ueberpruefen()` |
 | Filenames | ASCII | `groessen-helper.ts` |
@@ -80,14 +82,19 @@ console.log("Größe: " + groesse + " für Benutzer");
 <language_detection>
 ## Language Selection
 
-**Priority order:**
-1. **Follow project conventions** - Match existing language in the project
-2. **Maintain existing language** - Never translate or switch languages mid-file
-3. **Default English** - When unsure or for new projects, use English as fallback
+Which natural language to write prose, comments and docs in. This is separate from the umlaut / ASCII rules above (those decide HOW to spell a given German text, not WHICH language to use).
 
-When editing a file:
-1. Check existing comments and strings for language
-2. Continue in that language
-3. Never translate existing content
-4. New additions match existing style
+**Precedence (highest first):**
+1. **Explicit user request** - if the user asked for a specific language, use it.
+2. **Tool / plugin language setting** - if a tool or plugin defines the language for its own content (e.g. a task/item system such as credo configured to a given language, or where items have so far been written in that language), that takes precedence over the default below. Keep using the language already established there.
+3. **Existing language** - continue the language a file already uses. Never introduce a mixed-language file.
+4. **Default: English** - for anything new or unclear where nothing above applies.
+
+**When the correct language is genuinely unclear, ask the user instead of guessing.**
+
+- **Exception - autonomous mode** (e.g. credo autonomous mode, or any other unattended/autonomous run): do NOT stop to ask. Proceed with the best choice and state a one-line reason for the language picked. The user can intervene or stop the run to correct what was written. Rationale: an autonomous run must not be blocked by such a minor question.
+
+**README and public documentation:** always English, for international readability - even in an otherwise non-English project.
+
+**User-facing UI / GUI strings and messages:** follow the product's target audience / locale (a German-facing app gets German strings, an English-facing app English), independent of the code and comment language. The umlaut rules above still apply to German strings.
 </language_detection>
