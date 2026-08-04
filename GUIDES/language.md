@@ -38,6 +38,8 @@ German text MUST use proper Unicode characters:
 | Database columns | ASCII | `user_groesse` |
 | API endpoints | ASCII | `/api/uebersicht` |
 | Git branches | ASCII | `feature/groessen-anpassung` |
+
+**Note:** This table only governs the umlaut-vs-ASCII split for text that IS German. Whether a given spot is German at all follows Language Selection below (established language wins, English as fallback).
 </where_to_use>
 
 <rationale>
@@ -86,15 +88,15 @@ Which natural language to write prose, comments and docs in. This is separate fr
 
 **Precedence (highest first):**
 1. **Explicit user request** - if the user asked for a specific language, use it.
-2. **Tool / plugin language setting** - if a tool or plugin defines the language for its own content (e.g. a task/item system such as credo configured to a given language, or where items have so far been written in that language), that takes precedence over the default below. Keep using the language already established there.
-3. **Existing language** - continue the language a file already uses. Never introduce a mixed-language file.
-4. **Default: English** - for anything new or unclear where nothing above applies.
+2. **Tool / plugin language setting** - if a tool or plugin defines the language for its own content (e.g. a task/item system such as credo configured to a given language, or where items have so far been written in that language), that takes precedence over the defaults below. Keep using the language already established there.
+3. **Established language at the spot** - use the language already in use where you are writing (adjacent comments, strings, docs, surrounding code). Consistency at that spot always wins; never translate existing content and never mix languages within a file.
+4. **Default: English** - only for genuinely new content where no language is established. When in doubt, prefer English.
 
 **When the correct language is genuinely unclear, ask the user instead of guessing.**
 
 - **Exception - autonomous mode** (e.g. credo autonomous mode, or any other unattended/autonomous run): do NOT stop to ask. Proceed with the best choice and state a one-line reason for the language picked. The user can intervene or stop the run to correct what was written. Rationale: an autonomous run must not be blocked by such a minor question.
 
-**README and public documentation:** always English, for international readability - even in an otherwise non-English project.
+**User-facing UI / GUI strings and messages:** the UI language is a project decision - established by the strings already present OR by an explicit project convention/config. Follow that established UI language (it may well be German). Do NOT introduce new German (or any new language) just because a string is user-facing or the audience is assumed to speak it. Where nothing is established, default to English and confirm the intended UI language rather than guessing. Once German is the established UI language, the umlaut rules above apply to those strings.
 
-**User-facing UI / GUI strings and messages:** follow the product's target audience / locale (a German-facing app gets German strings, an English-facing app English), independent of the code and comment language. The umlaut rules above still apply to German strings.
+**README and public documentation:** always English, for international readability - even in an otherwise non-English project.
 </language_detection>

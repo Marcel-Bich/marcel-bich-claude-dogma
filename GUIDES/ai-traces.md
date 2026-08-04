@@ -12,9 +12,18 @@ Certain punctuation characters reveal AI-generated content. Always replace the c
 | " " | U+201C, U+201D (curly quotes) | " | U+0022 (straight quote) |
 | ' ' | U+2018, U+2019 (smart apostrophes) | ' | U+0027 (straight apostrophe) |
 | ‚ | U+201A (low-9 quote) | ' | U+0027 |
-| -- | U+2014 (em-dash) | - or -- | U+002D |
+| -- | U+2014 (em-dash) | - | U+002D |
 | -- | U+2013 (en-dash) | - | U+002D |
 | ... | U+2026 (ellipsis) | ... | Three dots |
+
+**Double-dash rule:** `--` is ONLY allowed when changing it to `-` would break functionality. Examples:
+- Allowed: `--force`, `--recursive`, `-r` (CLI flags - function requires it)
+- Allowed: `git checkout -- file`, `runuser -- \` (argument separator - function requires it)
+- NOT allowed: `# this is important -- do not skip` (comment - no functional purpose)
+- NOT allowed: `echo "Loading -- please wait"` (string - no functional purpose)
+- NOT allowed: `# gh wrapper -- auto-switch` (comment - just a text separator)
+
+**In short:** if `--` has no functional meaning (nothing breaks when replaced with `-`), always use `-`. Applies to prose, documentation, comments (including code comments) and strings.
 
 **Why these matter:**
 - AI models often produce these Unicode characters

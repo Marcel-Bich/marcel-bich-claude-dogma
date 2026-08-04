@@ -4,14 +4,14 @@
 **Language selection** (which natural language for prose/comments/docs) - precedence, highest first:
 1. **Explicit user request** - a requested language wins.
 2. **Tool/plugin setting** - a tool that sets its own content language (e.g. credo items) overrides the default.
-3. **Existing language** - continue a file's language; never mix languages in one file.
-4. **Default English** - new/unclear -> English. When genuinely unclear, ASK the user first. Exception: autonomous mode (e.g. credo autonomous, or any unattended run) -> do NOT ask, proceed and give a one-line reason; the user stops/corrects the run if needed.
+3. **Established language wins** - use the language already present where you write (adjacent comments, strings, docs, code); never translate existing content or mix languages in one file.
+4. **Default English** - only for genuinely new content with no established language; when in doubt, English. When truly unclear, ASK first. Exception: autonomous mode (e.g. credo autonomous, or any unattended run) -> do NOT ask, proceed and give a one-line reason; the user stops/corrects the run if needed.
 
 **Always:**
+- **UI/GUI strings** - the UI language is a project decision (established strings or explicit convention). Follow it - it may be German. Do NOT introduce new German just because a string is user-facing or the audience seems German; nothing established -> English, confirm rather than guess.
 - **README + public docs -> English** (international), even in a German project.
-- **UI/GUI strings -> product locale/audience** (German app -> German strings), independent of code language.
 - **German umlauts** - ALWAYS use ä, ö, ü, ß in German text. NEVER ae, oe, ue, ss.
-- **ASCII identifiers** - For German text: use ae, oe, ue, ss in filenames, variables, functions (not umlauts).
+- **ASCII identifiers** - identifiers (variables, functions, filenames, classes, DB columns, API paths, branches) are ASCII regardless of the text language.
 </rules>
 
 <examples>
