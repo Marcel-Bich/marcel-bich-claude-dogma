@@ -6,6 +6,7 @@
 3. **No smart ellipsis** - Use three dots (...), never the ellipsis character (U+2026)
 4. **No AI phrases** - Avoid "Let me...", "I'll...", "Sure!", "Certainly!", "Great question!", "I'd be happy to..."
 5. **No emojis in code** - Not in source, comments, identifiers, or logs. Only in UI/user output.
+6. **Colon then continuation, break the line** - A prose colon that introduces following text must not continue inline in lowercase (the `word: lowercase text` shape); put what follows on its own line. Within a paragraph use exactly one line break (next line capitalized, no blank line); as a paragraph heading use a blank line. Not for clock times (13:08), ratios (2:1), code, or key-value labels.
 </rules>
 
 For details see `GUIDES/ai-traces.md`

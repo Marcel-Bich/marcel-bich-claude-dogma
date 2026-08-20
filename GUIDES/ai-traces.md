@@ -97,6 +97,32 @@ Avoid these patterns in comments and documentation:
 **Rationale:** Emojis in code are unprofessional and often indicate AI generation.
 </emojis>
 
+<colon-formatting>
+## Colon Then Continuation - Break the Line, Never Inline
+
+When a colon in prose announces something and the explaining text follows, never continue on the same line in lowercase (the `word: lowercase continuation` shape). That inline pattern is an AI tell. A human puts what follows a colon on its own line, so the text reads section by section instead of being stuffed inline.
+
+**Colon within a paragraph (prose structuring):**
+Exactly ONE line break after the colon, then continue on the next line starting capitalized. No blank line, because it is the same thought block laid out clearly, not a new paragraph or heading.
+
+**Colon as a paragraph heading:**
+A blank line (two breaks) after the colon, then the body. Inside that body a further inline colon, for example before a list, still uses a single break.
+
+Wrong:
+```
+This brings us to the conclusion: the original idea was wrong.
+```
+
+Right (one break, capitalized continuation):
+```
+This brings us to the conclusion:
+The new idea was right.
+```
+
+**Does NOT apply to:**
+Clock times (13:08), ratios (2:1), source code, YAML or key-value pairs, data labels in output, or a heading already followed by a blank line.
+</colon-formatting>
+
 <detection>
 ## Detection
 
