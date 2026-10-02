@@ -185,6 +185,8 @@ The complete flow for complex tasks:
 /hydra:status    # Check status
 /hydra:merge     # Merge results
 ```
+
+**Worktrees are set up and cleaned automatically** (hydra, or credo's native fallback): excluded files such as CLAUDE.md, CLAUDE/, GUIDES/, DOGMA-PERMISSIONS.md and the unversioned .credo/ content are linked into every new worktree, and merged, clean worktrees are removed when an item closes (DOGMA-PERMISSIONS `§36ch`). An agent in its own worktree may commit on its worktree branch; push and merge stay with the main agent. Missing information is looked up read-only in the main checkout.
 </section>
 
 ---

@@ -15,6 +15,9 @@ Subagents MUST respect them just like the main agent.
 Subagents only modify files - they NEVER git add/commit/push. The main agent does
 add + commit + push after review, so the shared working-tree index has one owner
 (parallel subagents would race `.git/index.lock`).
+Exception: a subagent working in its OWN git worktree (hydra or native) has its own
+index and may commit on its worktree branch - never push or merge; push, merge and
+release stay with the main agent.
 (No `@`-import here - file is already loaded via `CLAUDE.md` Section 2.)
 </git_rules_reference>
 
