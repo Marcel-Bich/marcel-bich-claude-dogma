@@ -4,6 +4,22 @@ Configure what Claude is allowed to do autonomously.
 Mark with `[x]` for auto, `[?]` for ask, `[ ]` for deny.
 
 <permissions>
+## Inheritance
+- [x] (§r3nx) inherit permissions
+
+When Claude works in this project from another folder (a parent or workspace folder
+with its own DOGMA-PERMISSIONS.md), every setting this file does not define is taken
+from that folder's file. Settings defined here always win. With [ ] only this file counts.
+
+Which file applies: the target of the action (a `git -C <dir>` / `cd <dir> &&` command,
+or the edited file's own path) > the pinned project (credo `/credo:project`, when
+credo is installed) > the folder the session was started in. From there, the nearest
+DOGMA-PERMISSIONS.md upward counts.
+Example: the session starts in ~/workspace (with its own DOGMA-PERMISSIONS.md) and
+Claude runs `git -C ~/workspace-projects/app commit`. Then app's file applies; every
+setting app's file does not define comes from ~/workspace's file. With [ ] here, only
+app's file counts.
+
 ## Git Permissions
 - [x] (§6gpt) May run `git add` autonomously
 - [x] (§2w1t) May run `git commit` autonomously
